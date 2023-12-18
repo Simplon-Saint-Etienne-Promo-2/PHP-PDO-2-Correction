@@ -25,7 +25,7 @@
                             <a class="nav-link text-white active" aria-current="page" href="/PHP-PDO/PHP-PDO-2-Correction/pages/ajout-patient.php">Ajout patient</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Liste patient</a>
+                            <a class="nav-link text-white" href="/PHP-PDO/PHP-PDO-2-Correction/pages/liste-patient.php">Liste patient</a>
                         </li>
 
                     </ul>

@@ -1,6 +1,7 @@
 <?php
 
 if (
+    isset($_POST["id"]) && !empty($_POST["id"]) &&
     isset($_POST["lastname"]) && !empty($_POST["lastname"]) &&
     isset($_POST["firstname"]) && !empty($_POST["firstname"]) &&
     isset($_POST["birthdate"]) && !empty($_POST["birthdate"]) &&
@@ -10,14 +11,15 @@ if (
 ) {
     require_once('../utils/database_connect.php');
     
-    $request = $database->prepare("INSERT INTO patients (lastname, firstname, birthdate, phone, mail) 
-    VALUES (:lastname, :firstname, :birthdate, :phone, :mail)");
+    $request = $database->prepare("UPDATE patients SET lastname = :lastname, firstname = :firstname, birthdate = :birthdate, phone = :phone, mail = :mail
+    WHERE patients.id = :id");
     $request->execute([
         'lastname' => $_POST["lastname"],
         'firstname' => $_POST["firstname"],
         'birthdate' => $_POST["birthdate"],
         'phone' => $_POST["phone"],
         'mail' => $_POST["mail"],
+        'id' => $_POST["id"]
     ]);
 }
 

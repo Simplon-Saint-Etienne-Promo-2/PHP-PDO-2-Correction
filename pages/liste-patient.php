@@ -32,7 +32,13 @@ $patients = $request->fetchAll();
                     <th scope="row"><?php echo $patient["id"] ?></th>
                     <td><?php echo $patient["firstname"] ?></td>
                     <td><?php echo $patient["lastname"] ?></td>
-                    <td></td>
+                    <!-- <td><a href="./details-patient.php?id=<?php //echo $patient["id"] ?>">Voir détail</a></td> -->
+                    <td>
+                        <form action="./details-patient.php" method="post">
+                            <input type="hidden" name="id" value=<?php echo $patient["id"] ?>>
+                            <button type="submit">Voir détail</button>
+                        </form>
+                    </td>
                 </tr>
             <?php } ?>
 
